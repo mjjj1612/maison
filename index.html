@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison — 새로운 공간, 새로운 일상</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Maison — 새로운 공간, 새로운 일상" />
+  <meta property="og:description" content="인테리어의 시작부터 마무리까지, Maison이 함께 있겠습니다. 나에게 맞는 인테리어 업체를 지금 찾아보세요." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://maison.co.kr" />
+  <meta property="og:site_name" content="Maison" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maison — 새로운 공간, 새로운 일상" />
+  <meta name="twitter:description" content="인테리어의 시작부터 마무리까지, Maison이 함께 있겠습니다." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=85" />
+
+  <!-- SEO -->
+  <meta name="description" content="인테리어의 시작부터 마무리까지, Maison이 함께 있겠습니다. 나에게 맞는 인테리어 업체를 지금 찾아보세요." />
+  <meta name="keywords" content="인테리어, 인테리어 업체, 인테리어 추천, 집 꾸미기, 리모델링, 상가 인테리어" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --cream: #f8f5f0;
+    --accent: #c8956c;
+    --accent-light: #f0e0d4;
+    --accent-dark: #a0724e;
+    --gray-100: #f4f4f4;
+    --gray-200: #e8e8e8;
+    --gray-400: #9e9e9e;
+    --gray-600: #5a5a5a;
+    --gray-800: #2e2e2e;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--black);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 68px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--black); letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black); color: var(--white);
+    padding: 9px 20px; border-radius: 99px;
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+  /* HERO — FULLSCREEN */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-slideshow {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    opacity: 0;
+    transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 8s ease;
+    transform: scale(1.06);
+    background-size: cover; background-position: center;
+  }
+  .slide.active { opacity: 1; transform: scale(1); }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(15,12,10,0.72) 0%, rgba(15,12,10,0.3) 55%, rgba(15,12,10,0.1) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 6rem;
+    max-width: 680px;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.7);
+    font-size: 11px; font-weight: 400; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 2rem;
+  }
+  .hero-tag::before { content: ''; display: inline-block; width: 28px; height: 0.5px; background: var(--accent); }
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; line-height: 1.15;
+    font-weight: 500; color: var(--white);
+    margin-bottom: 1.5rem; letter-spacing: -1px;
+    overflow: hidden;
+  }
+  .hero-content h1 em { font-style: italic; color: var(--accent); }
+  .line-wrap { overflow: hidden; display: block; }
+  .line-inner {
+    display: block;
+    transform: translateY(100%);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .line-inner.visible { transform: translateY(0); }
+  .hero-content p {
+    font-size: 16px; color: rgba(255,255,255,0.7);
+    line-height: 1.8; margin-bottom: 2.5rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.8s 0.6s ease, transform 0.8s 0.6s ease;
+  }
+  .hero-content p.visible { opacity: 1; transform: translateY(0); }
+  .hero-actions {
+    display: flex; gap: 12px; align-items: center;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.8s 0.8s ease, transform 0.8s 0.8s ease;
+  }
+  .hero-actions.visible { opacity: 1; transform: translateY(0); }
+  .btn-primary {
+    background: var(--white); color: var(--black);
+    padding: 14px 28px; border-radius: 99px;
+    font-size: 15px; font-weight: 500; border: none; 
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: 0.3px;
+  }
+  .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(200,149,108,0.4); }
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: 99px;
+    font-size: 15px; font-weight: 400; border: 1.5px solid rgba(255,255,255,0.4); 
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  /* SLIDESHOW DOTS */
+  .slide-dots {
+    position: absolute; bottom: 2rem; left: 6rem; z-index: 3;
+    display: flex; gap: 8px; align-items: center;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 99px;
+    background: rgba(255,255,255,0.35); 
+    transition: all 0.4s ease;
+  }
+  .dot.active { width: 24px; background: rgba(255,255,255,0.9); }
+  .slide-arrows {
+    position: absolute; bottom: 1.6rem; right: 3rem; z-index: 3;
+    display: flex; gap: 8px;
+  }
+  .slide-arrow {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white; font-size: 18px; 
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s ease;
+  }
+  .slide-arrow:hover { background: rgba(255,255,255,0.25); }
+
+  /* SECTION COMMONS */
+  .section { padding: 6rem 5rem; }
+  .section-tag {
+    font-size: 10px; font-weight: 400; color: var(--gray-400);
+    letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-tag::before { content: ''; display: inline-block; width: 24px; height: 0.5px; background: var(--gray-400); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 500; color: var(--black);
+    letter-spacing: -0.5px;
+  }
+
+  /* BRAND PHILOSOPHY */
+  .philosophy-section {
+    padding: 7rem 5rem;
+    background: var(--black);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .philosophy-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(200,149,108,0.08) 0%, transparent 70%);
+  }
+  .philosophy-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 400; font-style: italic;
+    color: var(--white); line-height: 1.5;
+    max-width: 760px; margin: 0 auto 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .philosophy-quote em { color: var(--accent); font-style: normal; }
+  .philosophy-sub {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    letter-spacing: 2px; text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+
+  /* STYLE GUIDE — HORIZONTAL SCROLL */
+  .style-section { padding: 6rem 0 6rem 5rem; overflow: hidden; }
+  .style-section .section-header { padding-right: 5rem; margin-bottom: 2.5rem; }
+  .style-scroll-wrap { overflow: hidden; position: relative; }
+  .style-track {
+    display: flex; gap: 20px;
+    padding-right: 5rem;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .style-card {
+    flex: 0 0 300px; border-radius: var(--radius);
+    overflow: hidden; 
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.45s ease;
+  }
+  .style-card:hover { transform: translateY(-10px); box-shadow: 0 24px 64px rgba(0,0,0,0.1); }
+  .style-card:hover .style-img { transform: scale(1.06); }
+  .style-img-wrap { overflow: hidden; aspect-ratio: 3/4; }
+  .style-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-size: cover; background-position: center;
+  }
+  .style-body { padding: 16px 18px 20px; background: var(--white); border: 0.5px solid var(--gray-200); border-top: none; border-radius: 0 0 var(--radius) var(--radius); }
+  .style-category { font-size: 10px; color: var(--accent); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+  .style-title { font-size: 16px; font-weight: 500; color: var(--black); margin-bottom: 5px; }
+  .style-desc { font-size: 12px; color: var(--gray-400); line-height: 1.6; }
+  .style-nav { display: flex; gap: 8px; padding: 1.5rem 5rem 0; }
+  .style-nav-btn {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--gray-200); background: var(--white);
+     font-size: 16px; color: var(--gray-600);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s ease;
+  }
+  .style-nav-btn:hover { border-color: var(--black); color: var(--black); }
+
+  /* HOW IT WORKS */
+  .how-section { padding: 6rem 5rem; background: var(--black); color: var(--white); }
+  .how-section .section-tag { color: rgba(255,255,255,0.3); }
+  .how-section .section-tag::before { background: var(--accent); }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 2px; margin-top: 3rem;
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .step-item {
+    padding: 2.5rem; background: #222018;
+    transition: background 0.35s ease, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .step-item:hover { background: #2d2820; transform: translateY(-4px); }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 600;
+    color: var(--accent); opacity: 0.25; line-height: 1; margin-bottom: 1rem;
+  }
+  .step-icon { width: 48px; height: 48px; background: rgba(200,149,108,0.12); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 1.2rem; }
+  .step-title { font-size: 16px; font-weight: 500; margin-bottom: 0.6rem; color: var(--white); }
+  .step-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+
+  /* FEATURES */
+  .features-section { padding: 6rem 5rem; background: var(--cream); }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem; }
+  .features-visual { border-radius: var(--radius); aspect-ratio: 1/1; background-size: cover; background-position: center; }
+  .feature-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .feature-item {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.4rem 1.6rem; background: var(--white);
+    border-radius: var(--radius-sm);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+  }
+  .feature-item:hover { transform: translateX(10px); box-shadow: 0 8px 40px rgba(0,0,0,0.07); }
+  .feature-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--accent-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .feature-text h4 { font-size: 15px; font-weight: 500; margin-bottom: 5px; }
+  .feature-text p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+  /* FAQ */
+  details { background: var(--white); border-radius: var(--radius-sm); overflow: hidden; border: 0.5px solid var(--gray-200); }
+  details summary { padding: 1.2rem 1.5rem; font-size: 15px; font-weight: 500;  list-style: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.25s ease; }
+  details summary:hover { background: var(--gray-100); }
+  details[open] summary { color: var(--accent); }
+  details .faq-answer { padding: 1.2rem 1.5rem; font-size: 14px; color: var(--gray-600); line-height: 1.8; border-top: 0.5px solid var(--gray-200); }
+
+  /* PARTNER */
+  .partner-section {
+    padding: 4rem 5rem; background: var(--accent); color: var(--white);
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  }
+  .partner-text h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .partner-text p { font-size: 14px; opacity: 0.85; line-height: 1.7; max-width: 480px; }
+  .partner-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+  .partner-pill { background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 500; backdrop-filter: blur(4px); }
+  .btn-white { background: var(--white); color: var(--accent); padding: 14px 28px; border-radius: 99px; font-size: 14px; font-weight: 500; border: none;  white-space: nowrap; flex-shrink: 0; font-family: 'Noto Sans KR', sans-serif; transition: all 0.2s; }
+  .btn-white:hover { transform: scale(1.04); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+  /* FOOTER */
+  footer { padding: 3rem 5rem; background: var(--black); color: rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); }
+  .footer-logo span { color: var(--accent); }
+  .footer-links { display: flex; gap: 1.5rem; font-size: 12px; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-size: 12px; }
+
+  /* SCROLL ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(32px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .stagger-item { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .stagger-item.visible { opacity: 1; transform: translateY(0); }
+  /* GALLERY */
+  .gallery-section { padding: 6rem 5rem; background: var(--white); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 2.5rem;
+  }
+  .gallery-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .gallery-img {
+    width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .gallery-item:hover .gallery-img { transform: scale(1.08); }
+
+  /* CONTACT FORM */
+  .contact-section { padding: 6rem 5rem; background: var(--cream); }
+  .contact-wrapper {
+    max-width: 600px; margin: 0 auto;
+  }
+  .contact-wrapper .section-tag { margin-bottom: 1rem; }
+  .contact-wrapper .section-title { margin-bottom: 0.5rem; }
+  .contact-sub { font-size: 14px; color: var(--gray-400); margin-bottom: 2.5rem; }
+  .contact-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 12px; font-weight: 500; color: var(--gray-600); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none;
+    background: var(--white);
+    color: var(--black);
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { resize: none; }
+  .form-submit {
+    width: 100%; padding: 15px;
+    background: var(--black); color: var(--white);
+    border: none; border-radius: 99px;
+    font-size: 15px; font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-top: 4px;
+  }
+  .form-submit:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(200,149,108,0.4); }
+  .form-note { text-align: center; font-size: 12px; color: var(--gray-400); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .hero-content { padding: 0 2rem; }
+    .hero-content h1 { font-size: 2.6rem; }
+    .hero-content p { font-size: 14px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .slide-dots { left: 2rem; }
+    .section { padding: 4rem 1.5rem; }
+    .how-section { padding: 4rem 1.5rem; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .features-section { padding: 4rem 1.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .features-visual { aspect-ratio: 16/9; }
+    .style-section { padding: 4rem 0 4rem 1.5rem; }
+    .style-nav { padding: 1.5rem 1.5rem 0; }
+    .partner-section { flex-direction: column; padding: 3rem 1.5rem; }
+    .partner-text p { max-width: 100%; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .section-title { font-size: 1.6rem; }
+    .gallery-section { padding: 4rem 1.5rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .contact-section { padding: 4rem 1.5rem; }
+    .contact-card { padding: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Mai<span>son</span></div>
+  <div class="nav-links">
+    <a href="#" onclick="event.preventDefault(); document.querySelector('.features-section').scrollIntoView({behavior:'smooth'})">업체 소개</a>
+    <a href="#" onclick="event.preventDefault(); alert('인스타그램 준비 중입니다.');" title="Instagram" style="display:flex; align-items:center; justify-content:center; width:24px; height:24px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="https://new.smartplace.naver.com/bizes/place/11934745" target="_blank" rel="noopener" title="네이버 플레이스" style="display:flex; align-items:center; justify-content:center; width:24px; height:24px; background:#03C75A; border-radius:5px; font-size:14px; font-weight:700; color:white; text-decoration:none; font-family:Arial,sans-serif;">N</a>
+    <a href="#" class="nav-cta" onclick="event.preventDefault(); document.getElementById('partnerSection').scrollIntoView({behavior:'smooth'})">제휴문의</a>
+  </div>
+</nav>
+
+<!-- HERO — FULLSCREEN SLIDESHOW -->
+<section class="hero">
+  <div class="hero-slideshow">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=85');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=85');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=1600&q=85');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=85');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1600&q=85');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=1600&q=85');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=85');"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">인테리어의 새로운 기준</div>
+    <h1>
+      <span class="line-wrap"><span class="line-inner">새로운 공간,</span></span>
+      <span class="line-wrap"><span class="line-inner">새로운 일상을</span></span>
+      <span class="line-wrap"><span class="line-inner"><em>발견하세요</em></span></span>
+    </h1>
+    <p>인테리어의 시작부터 마무리까지, Maison이 함께 있겠습니다.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">상담 신청</button>
+      <button class="btn-secondary" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">시공 사례 보기</button>
+    </div>
+  </div>
+  <div class="slide-dots">
+    <div class="dot active" onclick="goToSlide(0)"></div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
+    <div class="dot" onclick="goToSlide(3)"></div>
+    <div class="dot" onclick="goToSlide(4)"></div>
+    <div class="dot" onclick="goToSlide(5)"></div>
+    <div class="dot" onclick="goToSlide(6)"></div>
+  </div>
+  <div class="slide-arrows">
+    <button class="slide-arrow" onclick="prevSlide()">‹</button>
+    <button class="slide-arrow" onclick="nextSlide()">›</button>
+  </div>
+</section>
+
+<!-- STYLE GUIDE — HORIZONTAL SCROLL -->
+<section class="style-section fade-in">
+  <div class="section-header">
+    <div class="section-tag">Style Guide</div>
+    <h2 class="section-title">어떤 스타일을 원하세요?</h2>
+  </div>
+  <div class="style-scroll-wrap">
+    <div class="style-track" id="styleTrack">
+      <div class="style-card">
+        <div class="style-img-wrap">
+          <div class="style-img" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80');"></div>
+        </div>
+        <div class="style-body">
+          <div class="style-category">Modern Minimal</div>
+          <div class="style-title">모던 미니멀</div>
+          <div class="style-desc">깔끔한 선과 여백, 화이트 & 그레이 톤<br>군더더기 없는 세련된 공간을 원하는 분께</div>
+        </div>
+      </div>
+      <div class="style-card">
+        <div class="style-img-wrap">
+          <div class="style-img" style="background-image: url('https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=600&q=80');"></div>
+        </div>
+        <div class="style-body">
+          <div class="style-category">Scandinavian</div>
+          <div class="style-title">스칸디나비안</div>
+          <div class="style-desc">우드 소재, 따뜻한 베이지 & 내추럴 톤<br>편안한 북유럽 감성을 원하는 분께</div>
+        </div>
+      </div>
+      <div class="style-card">
+        <div class="style-img-wrap">
+          <div class="style-img" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600&q=80');"></div>
+        </div>
+        <div class="style-body">
+          <div class="style-category">Vintage</div>
+          <div class="style-title">빈티지 & 레트로</div>
+          <div class="style-desc">앤티크 소품, 따뜻한 브라운 & 어스 톤<br>개성 있고 감성적인 공간을 원하는 분께</div>
+        </div>
+      </div>
+      <div class="style-card">
+        <div class="style-img-wrap">
+          <div class="style-img" style="background-image: url('https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=600&q=80');"></div>
+        </div>
+        <div class="style-body">
+          <div class="style-category">Luxury Modern</div>
+          <div class="style-title">럭셔리 모던</div>
+          <div class="style-desc">고급 마감재, 다크 & 골드 포인트 톤<br>품격 있고 고급스러운 공간을 원하는 분께</div>
+        </div>
+      </div>
+      <div class="style-card">
+        <div class="style-img-wrap">
+          <div class="style-img" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80');"></div>
+        </div>
+        <div class="style-body">
+          <div class="style-category">Natural Warm</div>
+          <div class="style-title">내추럴 웜</div>
+          <div class="style-desc">따뜻한 소재감, 아이보리 & 테라코타 톤<br>자연스럽고 포근한 공간을 원하는 분께</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="style-nav">
+    <button class="style-nav-btn" onclick="scrollStyle(-1)">‹</button>
+    <button class="style-nav-btn" onclick="scrollStyle(1)">›</button>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section fade-in">
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title" style="color:var(--white)">Maison과 함께하는<br>인테리어 6단계</h2>
+  <div class="steps-grid">
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <div class="step-icon">💬</div>
+      <div class="step-title">상담 신청</div>
+      <div class="step-desc">내 공간의 가치를 높이는 첫걸음, 상담 신청으로 시작하세요. 상가·주택 리모델링, 어떤 공간이든 Maison이 처음부터 함께합니다.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <div class="step-icon">🔍</div>
+      <div class="step-title">업체 매칭</div>
+      <div class="step-desc">상가·주택 리모델링 경험이 풍부한 업체를 찾아드립니다. 고객의 예산과 공간 목적에 맞는 파트너를 연결해드려요.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <div class="step-icon">🏠</div>
+      <div class="step-title">현장 방문 견적</div>
+      <div class="step-desc">전문가가 직접 방문하여 공간 구조와 요구사항을 꼼꼼히 살펴봅니다. 숨겨진 추가 비용 없이 3곳 이상의 견적을 편하게 비교해보세요.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">04</div>
+      <div class="step-icon">📝</div>
+      <div class="step-title">업체 선택 & 계약</div>
+      <div class="step-desc">비교·검토 후 가장 마음에 드는 업체를 직접 선택하세요. 투명한 계약 절차로 불필요한 걱정 없이 진행할 수 있어요.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">05</div>
+      <div class="step-icon">🔨</div>
+      <div class="step-title">시공 진행</div>
+      <div class="step-desc">숙련된 인테리어 전문가가 계획에 맞춰 꼼꼼하게 시공을 진행합니다. 안전과 품질 기준을 준수하며 모든 과정을 함께 살펴볼 수 있어요.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">06</div>
+      <div class="step-icon">🏡</div>
+      <div class="step-title">시공 후 지원</div>
+      <div class="step-desc">시공이 끝나도 Maison의 지원은 계속됩니다. 완공 후 유지·보수 및 추가 요청까지 세심하게 함께합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section fade-in">
+  <div class="section-tag">Why Maison</div>
+  <h2 class="section-title">다른 서비스와<br>무엇이 다른가요</h2>
+  <div class="features-grid">
+    <div class="features-visual" style="background-image: url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80');"></div>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-text">
+          <h4>마음 졸이지 않는 투명한 일정 관리</h4>
+          <p>계약 직후 빠른 공사 진행으로 입주 일정을 맞출 수 있도록 최선을 다합니다. 일정이 잘 지켜질 수 있도록 함께 조율해드려요.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💰</div>
+        <div class="feature-text">
+          <h4>예산 안에서 구현하는 최선의 아름다움</h4>
+          <p>고객 예산에 맞는 인테리어 패키지를 제안합니다. 여러 업체의 견적을 편하게 비교해보세요.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-text">
+          <h4>시공 후 지원</h4>
+          <p>공사 후 문제 발생 시 빠른 A/S를 제공합니다. 계약 이후에도 끝까지 함께하는 서비스입니다.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <h4>안전성과 신뢰성</h4>
+          <p>실내건축 공사업 면허를 보유한 업체만 참여합니다. 법적 자격을 갖춘 업체만이 시공에 참여할 수 있어요.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="fade-in" style="padding:6rem 5rem; background:var(--cream);">
+  <div style="max-width:720px; margin:0 auto;">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title" style="margin-bottom:2.5rem;">자주 묻는 질문</h2>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <details>
+        <summary>상담 신청은 어떻게 하나요? <span style="font-size:20px; color:var(--accent);">+</span></summary>
+        <div class="faq-answer">페이지 상단의 '상담 신청' 버튼을 통해 문의하시면 Maison 담당자가 직접 연락드립니다. 카카오톡 채널을 통해서도 편하게 문의하실 수 있어요.</div>
+      </details>
+      <details>
+        <summary>업체 선정 기준이 무엇인가요? <span style="font-size:20px; color:var(--accent);">+</span></summary>
+        <div class="faq-answer">Maison은 시공 경력, 고객 응대 방식, 일정 준수 여부 등을 바탕으로 고객께 잘 맞는 업체를 찾아드립니다. 업체 연결 이후에도 고객과 업체 사이에서 원활한 진행을 도와드립니다.</div>
+      </details>
+      <details>
+        <summary>고객에게 별도로 드는 비용이 있나요? <span style="font-size:20px; color:var(--accent);">+</span></summary>
+        <div class="faq-answer">고객께서 Maison에 별도로 지불하는 비용은 없습니다. 인테리어 시공 비용은 선택하신 업체와 직접 계약을 통해 진행됩니다.</div>
+      </details>
+      <details>
+        <summary>어떤 공간도 가능한가요? <span style="font-size:20px; color:var(--accent);">+</span></summary>
+        <div class="faq-answer">아파트, 빌라, 오피스텔 등 주거 공간은 물론 상가, 카페, 음식점 등 상업 공간도 가능합니다. 먼저 상담을 통해 공간 유형과 원하시는 방향을 알려주시면 어울리는 업체를 함께 찾아드립니다.</div>
+      </details>
+      <details>
+        <summary>시공 후 문제가 생기면 어떻게 하나요? <span style="font-size:20px; color:var(--accent);">+</span></summary>
+        <div class="faq-answer">시공 완료 후 불편한 점이 발생하면 Maison으로 연락주세요. 담당 업체와 원활한 소통이 이루어질 수 있도록 적극적으로 도와드립니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section fade-in" id="gallery">
+  <div class="section-tag">Gallery</div>
+  <h2 class="section-title">공간이 바뀌면<br>일상이 바뀝니다</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item"><div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80');"></div></div>
+    <div class="gallery-item"><div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80');"></div></div>
+    <div class="gallery-item"><div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80');"></div></div>
+    <div class="gallery-item"><div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80');"></div></div>
+    <div class="gallery-item"><div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&q=80');"></div></div>
+    <div class="gallery-item"><div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&q=80');"></div></div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-section fade-in" id="contactForm">
+  <div class="contact-wrapper">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-title">상담 신청</h2>
+    <p class="contact-sub">간단한 정보를 남겨주시면 Maison이 직접 연락드립니다.</p>
+    <div class="contact-card">
+      <div data-fs-success style="display:none; text-align:center; padding:2rem 0;">
+        <p style="font-size:1.1rem; font-weight:500; color:var(--accent); margin-bottom:0.5rem;">✓ 신청이 완료되었습니다!</p>
+        <p style="font-size:14px; color:var(--gray-600);">빠른 시일 내에 직접 연락드리겠습니다.</p>
+      </div>
+      <div data-fs-error style="display:none; padding:12px 16px; background:#fff0f0; border-radius:var(--radius-sm); font-size:14px; color:#c0392b; margin-bottom:8px;"></div>
+      <form id="maison-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">이름 *</label>
+            <input type="text" id="name" name="name" placeholder="홍길동" data-fs-field required />
+            <span data-fs-error="name" style="font-size:12px; color:#c0392b;"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">연락처 *</label>
+            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" data-fs-field required />
+            <span data-fs-error="phone" style="font-size:12px; color:#c0392b;"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="spaceType">공간 유형 *</label>
+            <select id="spaceType" name="spaceType" data-fs-field required>
+              <option value="">선택해주세요</option>
+              <option>아파트</option>
+              <option>빌라 / 주택</option>
+              <option>오피스텔</option>
+              <option>사무실</option>
+              <option>상가 / 카페</option>
+              <option>음식점</option>
+              <option>기타 상업시설</option>
+            </select>
+            <span data-fs-error="spaceType" style="font-size:12px; color:#c0392b;"></span>
+          </div>
+          <div class="form-group">
+            <label for="budget">예산 *</label>
+            <select id="budget" name="budget" data-fs-field required>
+              <option value="">선택해주세요</option>
+              <option>500만원 미만</option>
+              <option>500만원 ~ 1,000만원</option>
+              <option>1,000만원 ~ 3,000만원</option>
+              <option>3,000만원 ~ 5,000만원</option>
+              <option>5,000만원 이상</option>
+            </select>
+            <span data-fs-error="budget" style="font-size:12px; color:#c0392b;"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">문의 내용 (선택)</label>
+          <textarea id="message" name="message" rows="3" placeholder="원하시는 스타일이나 공간에 대해 자유롭게 적어주세요." data-fs-field></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-fs-submit-btn>Maison에 상담 신청하기 →</button>
+        <p class="form-note">🔒 개인정보는 안전하게 보호되며 마케팅에 활용되지 않습니다</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER BANNER -->
+<section class="partner-section fade-in" id="partnerSection">
+  <div class="partner-text">
+    <h2>협력 파트너로 함께하세요</h2>
+    <p>고객에게 인테리어 선택지를 제공하는 것만으로 파트너의 신뢰도와 서비스 가치가 높아집니다. 빠른 일정 · 합리적 견적 · 시공 후 지원으로 고객 만족도를 강화하세요.</p>
+    <div class="partner-pills">
+      <span class="partner-pill">✓ 고객 만족도 향상</span>
+      <span class="partner-pill">✓ 원스톱 서비스 제공</span>
+      <span class="partner-pill">✓ 추가 수익 창출</span>
+      <span class="partner-pill">✓ 믿을 수 있는 업체 네트워크</span>
+    </div>
+  </div>
+  <button class="btn-white" onclick="window.open('http://pf.kakao.com/_lmxbbX', '_blank')">리스팅 등록하기 →</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Mai<span>son</span></div>
+  <div class="footer-links">
+    <a href="#">서비스 소개</a>
+    <a href="#">이용약관</a>
+    <a href="#">개인정보처리방침</a>
+    <a href="#">고객센터</a>
+  </div>
+  <div class="footer-copy">© 2026 Maison. All rights reserved.</div>
+</footer>
+
+<script>
+  // FORM SUBMIT (Formspree Ajax SDK)
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#maison-form', formId: 'mvzykyry' });
+
+  // HERO TEXT ANIMATION
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.line-inner').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 150);
+      });
+      setTimeout(() => document.querySelector('.hero-content p').classList.add('visible'), 500);
+      setTimeout(() => document.querySelector('.hero-actions').classList.add('visible'), 700);
+    }, 200);
+  });
+
+  // SLIDESHOW
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  function goToSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+  setInterval(nextSlide, 6000);
+
+  // HORIZONTAL STYLE SCROLL
+  let styleOffset = 0;
+  function scrollStyle(dir) {
+    const track = document.getElementById('styleTrack');
+    const cardWidth = 320;
+    const maxOffset = -(track.children.length - 3) * cardWidth;
+    styleOffset = Math.max(maxOffset, Math.min(0, styleOffset + dir * -cardWidth));
+    track.style.transform = `translateX(${styleOffset}px)`;
+  }
+
+  // SCROLL FADE-IN
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // STAGGER
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stagger-item').forEach((item, i) => {
+          setTimeout(() => item.classList.add('visible'), i * 100);
+        });
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.steps-grid, .feature-list').forEach(el => {
+    el.querySelectorAll('.step-item, .feature-item').forEach(item => item.classList.add('stagger-item'));
+    staggerObserver.observe(el);
+  });
+</script>
+<!-- 카카오톡 채널 플로팅 버튼 -->
+<a href="http://pf.kakao.com/_lmxbbX" target="_blank" rel="noopener"
+  style="position:fixed; bottom:2rem; right:2rem; z-index:999;
+  width:56px; height:56px; border-radius:50%;
+  background:#FEE500; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.2); transition:transform 0.2s, box-shadow 0.2s;"
+  onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.25)'"
+  onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)'"
+  title="카카오톡 채널 상담">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#3A1D1D">
+    <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.632 1.6 4.963 4.04 6.352L5 21l4.5-2.5c.816.164 1.65.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
+  </svg>
+</a>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>
