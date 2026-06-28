@@ -469,7 +469,7 @@
     </h1>
     <p>인테리어의 시작부터 마무리까지, Maison이 함께 있겠습니다.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">상담 신청</button>
+      <button class="btn-primary" onclick="window.open('http://pf.kakao.com/_lmxbbX', '_blank')">상담 신청</button>
       <button class="btn-secondary" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">시공 사례 보기</button>
     </div>
   </div>
@@ -686,61 +686,21 @@
   <div class="contact-wrapper">
     <div class="section-tag">Contact</div>
     <h2 class="section-title">상담 신청</h2>
-    <p class="contact-sub">간단한 정보를 남겨주시면 Maison이 직접 연락드립니다.</p>
-    <div class="contact-card">
-      <div data-fs-success style="display:none; text-align:center; padding:2rem 0;">
-        <p style="font-size:1.1rem; font-weight:500; color:var(--accent); margin-bottom:0.5rem;">✓ 신청이 완료되었습니다!</p>
-        <p style="font-size:14px; color:var(--gray-600);">빠른 시일 내에 직접 연락드리겠습니다.</p>
-      </div>
-      <div data-fs-error style="display:none; padding:12px 16px; background:#fff0f0; border-radius:var(--radius-sm); font-size:14px; color:#c0392b; margin-bottom:8px;"></div>
-      <form id="maison-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">이름 *</label>
-            <input type="text" id="name" name="name" placeholder="홍길동" data-fs-field required />
-            <span data-fs-error="name" style="font-size:12px; color:#c0392b;"></span>
-          </div>
-          <div class="form-group">
-            <label for="phone">연락처 *</label>
-            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" data-fs-field required />
-            <span data-fs-error="phone" style="font-size:12px; color:#c0392b;"></span>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="spaceType">공간 유형 *</label>
-            <select id="spaceType" name="spaceType" data-fs-field required>
-              <option value="">선택해주세요</option>
-              <option>아파트</option>
-              <option>빌라 / 주택</option>
-              <option>오피스텔</option>
-              <option>사무실</option>
-              <option>상가 / 카페</option>
-              <option>음식점</option>
-              <option>기타 상업시설</option>
-            </select>
-            <span data-fs-error="spaceType" style="font-size:12px; color:#c0392b;"></span>
-          </div>
-          <div class="form-group">
-            <label for="budget">예산 *</label>
-            <select id="budget" name="budget" data-fs-field required>
-              <option value="">선택해주세요</option>
-              <option>500만원 미만</option>
-              <option>500만원 ~ 1,000만원</option>
-              <option>1,000만원 ~ 3,000만원</option>
-              <option>3,000만원 ~ 5,000만원</option>
-              <option>5,000만원 이상</option>
-            </select>
-            <span data-fs-error="budget" style="font-size:12px; color:#c0392b;"></span>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="message">문의 내용 (선택)</label>
-          <textarea id="message" name="message" rows="3" placeholder="원하시는 스타일이나 공간에 대해 자유롭게 적어주세요." data-fs-field></textarea>
-        </div>
-        <button type="submit" class="form-submit" data-fs-submit-btn>Maison에 상담 신청하기 →</button>
-        <p class="form-note">🔒 개인정보는 안전하게 보호되며 마케팅에 활용되지 않습니다</p>
-      </form>
+    <p class="contact-sub">카카오톡 채널로 편하게 문의해주세요. 빠르게 답변드리겠습니다.</p>
+    <div class="contact-card" style="text-align:center; padding:3rem 2rem;">
+      <div style="font-size:48px; margin-bottom:1.5rem;">💬</div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:500; color:var(--black); margin-bottom:0.8rem;">카카오톡으로 바로 상담하세요</h3>
+      <p style="font-size:14px; color:var(--gray-600); line-height:1.8; margin-bottom:2rem;">인테리어 고민부터 견적 문의까지<br>Maison 전담 상담사가 친절하게 안내해드립니다.</p>
+      <a href="http://pf.kakao.com/_lmxbbX" target="_blank" rel="noopener"
+        style="display:inline-flex; align-items:center; gap:10px; background:#FEE500; color:#3A1D1D; padding:16px 32px; border-radius:99px; font-size:15px; font-weight:500; text-decoration:none; transition:all 0.2s;"
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(254,229,0,0.5)'"
+        onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#3A1D1D">
+          <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.632 1.6 4.963 4.04 6.352L5 21l4.5-2.5c.816.164 1.65.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
+        </svg>
+        카카오톡 채널 상담 시작하기
+      </a>
+      <p style="font-size:12px; color:var(--gray-400); margin-top:1.2rem;">평일 09:00 ~ 18:00 운영</p>
     </div>
   </div>
 </section>
